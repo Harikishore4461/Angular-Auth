@@ -1,0 +1,8 @@
+<div class="p-3">
+<h1 mat-dialog-title>Delete</h1>
+<mat-dialog-content>Are You Want To {{data.operation}} {{ data.name }} {{data.id}}?</mat-dialog-content>
+<mat-dialog-actions>
+    <button class="btn btn-danger m-3" mat-button mat-dialog-close mat-dialog-close="true">{{data.operation}}</button>
+    <button class="btn btn-light m-3" mat-button mat-dialog-close mat-dialog-close="false" cdkFocusInitial >Cancel</button>
+</mat-dialog-actions>
+</div>

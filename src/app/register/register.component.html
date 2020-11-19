@@ -1,0 +1,42 @@
+<div class="row pt-5">
+    <div class="col-md-5 mx-auto">
+        <div class="card roundeo-0">
+            <div class=" card-header">
+                <h1 class="mb-0 mat-h2">Register</h1>
+            </div>
+            <div class=" card-body">
+                <form #userForm="ngForm">
+                    <div class="form-group">
+                        <label for="email">UserName</label>
+                        <input #user="ngModel" [class.is-invalid]="user.invalid && user.touched" type="text"
+                            [(ngModel)]="userdata.username" name="user" required class="form-control rounded-0" placeholder="Enter email"
+                            id="user">
+                        <small [class.d-none]="user.valid || user.untouched" class="text-danger">USERNAME IS REQUIRED</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email address:</label>
+                        <input #email="ngModel"  [class.is-invalid]="email.invalid && email.touched" type="email" [(ngModel)]="userdata.email" name="email" required class="form-control rounded-0" placeholder="Enter email" id="email">
+                        <small [class.d-none]="email.valid || email.untouched" class="text-danger">MAIL IS REQUIRED</small>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="pwd">Password:</label>
+                        <input #pass="ngModel"  [class.is-invalid]="pass.invalid && pass.touched" type="password" [(ngModel)]="userdata.password" name="password" required class="form-control rounded-0" placeholder="Enter password" id="pwd">
+                        <small [class.d-none]="pass.valid || pass.untouched" class="text-danger">PASSWORD IS REQUIRED</small>
+                    </div>
+              
+                    <div class="form-group">
+                        <label for="pwd">Confirm Password:</label>
+                        <input #passconfirm="ngModel" [class.is-invalid]="!onCheck() && passconfirm.touched" type="password"
+                               [(ngModel)]="pass1" name="password1" required class="form-control rounded-0"
+                            placeholder="Confirm password" id="pwd1">
+                        <small [class.d-none]="onCheck() || passconfirm.untouched || passconfirm.invalid" class="text-danger">PASSWORD IS NOT MATCH</small>
+                    </div>
+                    <h3 *ngIf="errormsg" class="alert alert-danger" [class.alert-danger]="errormsg">{{ errormsg.error.error }}</h3>
+                    <button type="submit" [disabled]="userForm.form.invalid" (click)="onclick()" class="btn btn-primary float-right">Submit</button>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

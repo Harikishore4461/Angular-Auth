@@ -1,0 +1,25 @@
+<div class=" row mt-3 mat-subheading-2">
+    <div class=" col-4  m-auto " *ngFor="let item of list">
+        <div  class="mt-4 card text-center">
+            <div class=" card-header">
+                <b class=" text-dark" *ngIf="!toggle || !onCheck(item.email)" >{{ item.email }}</b>
+                <input type="text" [(ngModel)]="edited" name="email" *ngIf="toggle && onCheck(item.email)"  [value]="mail">
+            </div>
+            <div class="card-body">
+                <b class=" text-info">{{ item.password }}</b>
+            </div>
+            <div class=" card-footer">
+                <div *ngIf="!toggle || !onCheck(item.email)">
+                    <button class=" btn btn-info m-2" (click)="onEdit(item.email)">EDIT</button>
+                    <button class=" btn btn-danger" (click)="onDelete(item.email)">DELETE</button>
+                </div>
+                <div  *ngIf="toggle && onCheck(item.email)" >
+                    <button class=" btn btn-info" (click)="onSave(item)">SAVE</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div  *ngIf = spin>
+    <mat-progress-spinner class=" m-auto" mode="indeterminate"></mat-progress-spinner>
+</div>
